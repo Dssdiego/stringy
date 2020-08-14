@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <title>Stringy</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <!-- Raleway Font -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
+</head>
+<style>
+    /* .area {
+        width: 800px;
+        height: 200px;
+    } */
+
+    .hwt-content mark.red {
+        background-color: #ffc9c9;
+    }
+
+    .hwt-content mark.blue {
+        background-color: #a3daff;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="half">
+            <span>Mudar de</span>
+            <input id="oldString" type="text" value="parseserver.scanitec.com.br" />
+            <textarea id="old" class="area" onkeyup="onUpdateText()"></textarea>
+        </div>
+        <div>
+            <button onclick="reloadPage()">Limpar</button>
+        </div>
+        <div class="half">
+            <span>Para</span>
+            <input id="newString" type="text" value="parseserver1.scanitec.com.br" />
+            <textarea id="result"
+                class="area" onmouseover="showCopyIcon(true)" onmouseout="showCopyIcon(false)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. http://parseserver.scanitec.com.br Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+        </div>
+    </div>
+
+    <!-- Ícone de Cópia -->
+    <div class="copy-icon-background" onmouseover="showCopyIcon(true)"></div>
+    <div class="copy-icon" onmouseover="showCopyIcon(true)" onclick="copyToClipboard()"></div>
+
+    <!-- Notificação -->
+    <div class="not-container">
+        <div class="notification">
+            <div>Copiado!</div>
+        </div>
+    </div>
+</body>
+<!-- JQuery Import -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- highlight-within-textarea CSS/JS -->
+<!-- <link href="jquery.highlight-within-textarea.css" rel="stylesheet"> -->
+<!-- <script src="jquery.highlight-within-textarea.js"></script> -->
+<script>
+    // function onUpdateText() {
+    //     var oldString = document.getElementById('oldString').value;
+    //     var newString = document.getElementById('newString').value;
+
+    //     var oldText = document.getElementById('old').value;
+    //     oldText = oldText.replaceAll(oldString, newString);
+
+    //     document.getElementById('result').innerHTML = oldText;
+
+    //     // Highlight no que foi modificado
+    //     $('.area').highlightWithinTextarea({
+    //         highlight: [
+    //             {
+    //                 highlight: oldString,
+    //                 className: 'red'
+    //             },
+    //             {
+    //                 highlight: newString,
+    //                 className: 'blue'
+    //             }
+    //         ]
+    //     });
+    // }
+</script>
+
+</html>

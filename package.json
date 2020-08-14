@@ -1,0 +1,15 @@
+{
+    "name": "stringy",
+    "version": "0.1.0",
+    "description": "String Changer",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "test": "test"
+    },
+    "author": "Diego S. Seabra",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^9.2.0"
+    }
+}
