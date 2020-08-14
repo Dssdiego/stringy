@@ -12,23 +12,33 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    visibility: hidden;
+    opacity: 0;
 }
 
 .notification {
     width: 150px;
     height: 45px;
-    background-color: #17191d;
+    background-color: #DFA446;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     border-radius: 150px;
-    visibility: hidden;
 }
 
 .notification > div {
     color: white;
+}
+
+/* Efeitos de Transição */
+.fadeIn {
+    opacity: 1;
+    transition: opacity 0.35s;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 0.85s;
 }
 
 /* Header Titles */
@@ -89,52 +99,47 @@ input {
 
 /* Botão de Refresh */
 button {
-    background-color: #191b1f;
     border: 0;
     color: white;
-    border-radius: 150px;
     width: 54px;
     height: 54px;
     outline: none;
     cursor: pointer;
     margin-top: 16px;
-    /* position: absolute;
-    z-index: 1;
-    left: 47.5%;
-    top: 5%; */
+    background: url("images/ic_refresh.png") no-repeat center;
 }
 
-.copy-icon-background {
+/* Seta para Direita */
+.arrow {
+    margin-top: 190px;
+    width: 54px;
+    height: 54px;
+    background: url("images/ic_arrow_right.png") no-repeat center;
+}
+
+/* Botão de Copiar o Texto */
+.copy-container {
     position: absolute;
     right: 65px;
     top: 125px;
-    background-color: #232428;
-    border-radius: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 32px;
     height: 32px;
-    visibility: hidden;
-}
-
-.copy-icon {
+    border-radius: 150px;
+    background-color: #202225;
+    opacity: 0;
     cursor: pointer;
-    position: absolute;
-    right: 65px;
-    top: 125px;
-    border-radius: 150px;
-    width: 32px;
-    height: 32px;
-    background: url(images/ic_copy2.png) no-repeat center;
-    visibility: hidden;
 }
 
-/* .arrow {
-    position: absolute;
-    z-index: 1;
-    left: 47.5%;
-    top: 50%
-} */
+/* Div de Ícones do Centro */
+.center-div {
+    display: flex;
+    flex-direction: column;
+}
 
 /* Seleção de Texto */
 ::selection {
-    background: #B9BBBE;
+    background: #b9bbbe;
 }

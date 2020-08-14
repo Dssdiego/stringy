@@ -1,8 +1,14 @@
-// Esconde a notificação e o botão de cópia ao inicar
-window.onload = () => {
-    console.log("Carregado!")
-    // showCopyIcon(false)
-    // showCopyNotification(false)
+// Muda a cor da borda do input quando estiver digitando
+function onInputChange() {
+    checkEmptyInput()
+}
+
+function checkEmptyInput() {
+    var oldStringObj = document.getElementById('oldString')
+    var newStringObj = document.getElementById('newString')
+
+    oldStringObj.style.borderColor = oldStringObj.value === "" ? 'red' : '#40444c'
+    newStringObj.style.borderColor = newStringObj.value === "" ? 'red' : '#40444c'
 }
 
 // Atualiza o Text Area de Resultado
@@ -10,10 +16,18 @@ function onUpdateText() {
     var oldString = document.getElementById('oldString').value
     var newString = document.getElementById('newString').value
 
-    var oldText = document.getElementById('old').value
-    oldText = oldText.replaceAll(oldString, newString)
+    checkEmptyInput()
 
-    document.getElementById('result').innerHTML = oldText
+    if (oldString !== "" && newString !== "" && oldString.length > 2 && newString.length > 2) {
+        var oldText = document.getElementById('old').value
+
+        // Faz o replace da string
+        while (oldText.includes(oldString)) {
+            oldText = oldText.replace(oldString, newString)
+        }
+
+        document.getElementById('result').value = oldText
+    } 
 }
 
 // Copia Texto para o Clipboard
@@ -29,25 +43,31 @@ function copyToClipboard() {
     }, 3000)
 }
 
-// Mostra e Esconde partes da UI
-
+// Mostra ou Esconde a Notificação de "Copiado"
 function showCopyNotification(flag) {
-    showPieceOfUI(flag, '.not-container')
-    showPieceOfUI(flag, '.notification')
+    if (flag) {
+        document.querySelector('.not-container').classList.add("fadeIn")
+        document.querySelector('.not-container').classList.remove("fadeOut")
+    } else {
+        document.querySelector('.not-container').classList.remove("fadeIn")
+        document.querySelector('.not-container').classList.add("fadeOut")
+    }
 }
 
+// Mostra ou Esconde o Ícone de Copiar o Texto da Área de Resultado
 function showCopyIcon(flag) {
-    showPieceOfUI(flag, '.copy-icon-background')
-    showPieceOfUI(flag, '.copy-icon')
+    if (flag) {
+        document.querySelector('.copy-container').style.opacity = 1
+    } else {
+        document.querySelector('.copy-container').style.opacity = 0
+    }
 }
 
-function showPieceOfUI(flag, ui) {
-    let state = flag ? "visible" : "hidden"
-    document.querySelector(ui).style.visibility = state
-}
-
-// Recarrega a Página
-function reloadPage() {
-    window.location.reload();
+// Limpa os Campos
+function clearFields() {
+    // window.location.reload();
+    console.log('Cleaning Fields')
+    document.getElementById('old').value = ""
+    document.getElementById('result').value = ""
 }
 
