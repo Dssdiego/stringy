@@ -1,15 +1,22 @@
 {
     "name": "stringy",
+    "appId": "br.com.karmatek.stringy",
+    "mac": {
+        "category": "public.app-category.utilities"
+    },
     "version": "0.1.0",
     "description": "String Changer",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
-        "test": "test"
+        "test": "test",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
     },
     "author": "Diego S. Seabra",
     "license": "MIT",
     "devDependencies": {
-        "electron": "^9.2.0"
+        "electron": "^9.2.0",
+        "electron-builder": "^22.8.0"
     }
 }
